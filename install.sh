@@ -4,11 +4,11 @@ do
     if [ "$line" = "-" ]; then
         echo "Skip $line"
     else
-        ssh root@$line -n "rm -rf /Big_Data/ && mkdir /Big_Data/"
+        ssh root@$line -n "rm -rf /big_data_1/ && mkdir /big_data_1/"
         echo "Copy data to $line"
-        scp  /Big_Data/setup.py root@$line:/Big_Data/ && scp /Big_Data/manager root@$line:/Big_Data/ && scp /Big_Data/workers root@$line:/Big_Data/
+        scp  /big_data_1/setup.py root@$line:/big_data_1/ && scp /big_data_1/manager root@$line:/big_data_1/ && scp /big_data_1/workers root@$line:/big_data_1/
         echo "Setup $line"
-        ssh root@$line -n "cd /Big_Data/ && python3 setup.py && ntpdate time.nist.gov"
+        ssh root@$line -n "cd /big_data_1/ && python3 setup.py && ntpdate time.nist.gov"
         echo "Finished config node $line"
     fi
 done
