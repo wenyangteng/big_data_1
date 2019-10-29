@@ -6,10 +6,11 @@ import re
 import sys
 pat = re.compile('(?P<time>\d\d\d\d)(?P<tag>\D)')
 for line in sys.stdin:
-    match = pat.find(line)
+    line = ine.split(',')[19]
+    match = pat.search(line)
     if match:
-        hr = int(match.group(time)[:2])
-        mnt = int(match.group(time)[2:])
-        if match.group(tag) == 'P':
+        hr = int(match.group("time")[:2])
+        mnt = int(match.group("time")[2:])
+        if match.group("tag") == 'P':
             hr += 12
-        print('%s/t%s' % ('[' + str(hr) + ':' + str(mnt) + ']', 1))
+        print('%s\t%s' % ('[' + str(hr) + ':' + str(mnt) + ']', 1))
