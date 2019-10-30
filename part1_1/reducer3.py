@@ -2,19 +2,18 @@
 # coding: utf-8
 
 import sys
-import collections
-from operator import itemgetter
-res = collections.defaultdict()
+import operator
+
+hash_location = {}
 
 for line in sys.stdin:
-    line = line.strip(str)
-    time, num = line.split('\t')
-    res[time] += 1
+    line = line.strip()
+    location, count = line.split('\t')
+    hash_location[location]= hash_location.get(location,0)+ count
+    
+top_location = sorted(hash_location.items(), key=operator.itemgetter(1),reverse = True)[0]
 
-top3_res = sort(res.iteritems(), key = operator.itemgetter(1), reverse = True)[:3]
-
-for time, num in top3_res:
-    print ('%s\t%s' % (time, num))
+print ('%s\t%d'% (top_location[0], top_location[1]))
 
      
     
