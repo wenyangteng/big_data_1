@@ -8,8 +8,8 @@ for line in sys.stdin:
     line = line.strip()
     line = line.split()
     for i in line:
-    	match = pat.search(i)
-    	if match:
+        match = pat.search(i)
+        if match:
             hr = int(match.group("time")[:2])
             mnt = int(match.group("time")[2:])
             if match.group("tag") == 'P':
