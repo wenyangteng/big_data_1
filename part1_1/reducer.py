@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
+#!/usr/bin/python
 import sys
 import collections
 from operator import itemgetter
