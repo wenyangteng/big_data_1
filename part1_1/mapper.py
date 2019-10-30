@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# When are tickets most likely to be issued?
 import re
 import sys
+import codecs
 pat = re.compile('(?P<time>\d\d\d\d)(?P<tag>\D)')
+utf16reader = codecs.getreader("utf_16")
+sys.stdin = utf16reader(sys.stdin)
 for line in sys.stdin:
     line = line.split(',')[19]
     match = pat.search(line)
