@@ -6,7 +6,7 @@ import re
 import sys
 pat = re.compile('(?P<time>\d\d\d\d)(?P<tag>\D)')
 for line in sys.stdin:
-    line = ine.split(',')[19]
+    line = line.split(',')[19]
     match = pat.search(line)
     if match:
         hr = int(match.group("time")[:2])
